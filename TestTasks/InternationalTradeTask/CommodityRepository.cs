@@ -22,14 +22,13 @@ namespace TestTasks.InternationalTradeTask
         {
             foreach (var commodityGroup in _allCommodityGroups)
             {
-                double? result = GetTariffRecursive(commodityGroup, commodityName, false, commodityGroup.ImportTarif);
+                double? result = GetTariffRecursive(commodityGroup, commodityName, false, commodityGroup.ExportTarif);
                 if (result != null) return result.Value;
             }
 
             throw new ArgumentNullException($"Not found elemnt: {commodityName}");
         }
 
-        // parameter isImport is a flag for recursion to take import or export tariff to avoid code duplication
         private double? GetTariffRecursive(ICommodityGroup commodities, string commodityName, bool isImport, double? parentTariff)
         {
             double? currentTariffType = isImport ? commodities.ImportTarif : commodities.ExportTarif;

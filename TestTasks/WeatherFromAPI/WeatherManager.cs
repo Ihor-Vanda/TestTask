@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -21,8 +19,8 @@ namespace TestTasks.WeatherFromAPI
             client = _client ?? throw new ArgumentNullException(nameof(client));
         }
 
-        //currently one call api needs subsribe to access free plan have only Current weather API, 3-hour forecast for 5 days API, 
-        //Weather Maps - Current weather, 5 weather layers ,Air Pollution API, Geocoding API
+        //currently one call api needs subsribe to access, free plan have only Current weather API, 3-hour forecast for 5 days API, 
+        //Weather Maps - Current weather, 5 weather layers, Air Pollution API, Geocoding API
         //so for test task was using 3-hour forecast for 5 days API that have similar data format
 
         public async Task<WeatherComparisonResult> CompareWeather(string cityA, string cityB, int dayCount)
@@ -36,19 +34,8 @@ namespace TestTasks.WeatherFromAPI
             var cityAData = await GetCityCoordinatesAsync(cityA) ?? throw new ArgumentNullException($"Can't get location of {cityA}");
             var cityBData = await GetCityCoordinatesAsync(cityB) ?? throw new ArgumentNullException($"Can't get location of {cityB}");
 
-            // Console.WriteLine(cityAObj.CityName + " " + cityAObj.Longitude + " " + cityAObj.Latitude);
-            // Console.WriteLine(cityBObj.CityName + " " + cityBObj.Longitude + " " + cityBObj.Latitude);
-
             cityAData = await GetWeatherDataAsync(cityAData, dayCount);
-            // foreach (var day in cityAData.DailyWeather)
-            // {
-            //     DisplayWeather(day);
-            // }
             cityBData = await GetWeatherDataAsync(cityBData, dayCount);
-            // foreach (var day in cityBData.DailyWeather)
-            // {
-            //     DisplayWeather(day);
-            // }
 
             int warmerDaysCount = 0;
             int rainierDaysCount = 0;
