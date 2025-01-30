@@ -1,31 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Projects\\.NET\\TestTask\\TestTask\\TestTasks\\TestTasks.csproj": {}
+    "C:\\Users\\vanda\\Projects\\.NET\\TestTask\\TestTask\\TestTasks\\TestTasks.csproj": {}
   },
   "projects": {
-    "D:\\Projects\\.NET\\TestTask\\TestTask\\TestTasks\\TestTasks.csproj": {
+    "C:\\Users\\vanda\\Projects\\.NET\\TestTask\\TestTask\\TestTasks\\TestTasks.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Projects\\.NET\\TestTask\\TestTask\\TestTasks\\TestTasks.csproj",
+        "projectUniqueName": "C:\\Users\\vanda\\Projects\\.NET\\TestTask\\TestTask\\TestTasks\\TestTasks.csproj",
         "projectName": "TestTasks",
-        "projectPath": "D:\\Projects\\.NET\\TestTask\\TestTask\\TestTasks\\TestTasks.csproj",
+        "projectPath": "C:\\Users\\vanda\\Projects\\.NET\\TestTask\\TestTask\\TestTasks\\TestTasks.csproj",
         "packagesPath": "C:\\Users\\vanda\\.nuget\\packages\\",
-        "outputPath": "D:\\Projects\\.NET\\TestTask\\TestTask\\TestTasks\\obj\\",
+        "outputPath": "C:\\Users\\vanda\\Projects\\.NET\\TestTask\\TestTask\\TestTasks\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\vanda\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\vanda\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net5.0"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,8 +37,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.100"
+        }
       },
       "frameworks": {
         "net5.0": {
@@ -70,12 +63,30 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[5.0.17, 5.0.17]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[5.0.0, 5.0.0]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
         }
       }
     }

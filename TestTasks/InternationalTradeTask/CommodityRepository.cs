@@ -8,12 +8,48 @@ namespace TestTasks.InternationalTradeTask
     {
         public double GetImportTariff(string commodityName)
         {
-            throw new NotImplementedException();
+            foreach (var commodityGroup in _allCommodityGroups)
+            {
+                double? result = GetTariffRecursive(commodityGroup, commodityName, true, commodityGroup.ImportTarif);
+                if (result != null) return result.Value;
+            }
+
+            throw new ArgumentNullException($"Not found elemnt: {commodityName}");
         }
+
 
         public double GetExportTariff(string commodityName)
         {
-            throw new NotImplementedException();
+            foreach (var commodityGroup in _allCommodityGroups)
+            {
+                double? result = GetTariffRecursive(commodityGroup, commodityName, false, commodityGroup.ImportTarif);
+                if (result != null) return result.Value;
+            }
+
+            throw new ArgumentNullException($"Not found elemnt: {commodityName}");
+        }
+
+        // parameter isImport is a flag for recursion to take import or export tariff to avoid code duplication
+        private double? GetTariffRecursive(ICommodityGroup commodities, string commodityName, bool isImport, double? parentTariff)
+        {
+            double? currentTariffType = isImport ? commodities.ImportTarif : commodities.ExportTarif;
+            double? currentTariffValue = currentTariffType.HasValue ? currentTariffType : parentTariff;
+
+            if (commodities.Name == commodityName)
+            {
+                return currentTariffValue;
+            }
+
+            if (commodities.SubGroups != null)
+            {
+                foreach (ICommodityGroup sub in commodities.SubGroups)
+                {
+                    double? result = GetTariffRecursive(sub, commodityName, isImport, currentTariffValue);
+                    if (result != null) return result;
+                }
+            }
+
+            return null;
         }
 
         private FullySpecifiedCommodityGroup[] _allCommodityGroups = new FullySpecifiedCommodityGroup[]
